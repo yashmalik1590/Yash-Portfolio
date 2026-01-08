@@ -1,0 +1,231 @@
+/* Education Section Styles */
+.education {
+    padding: var(--space-20) 0;
+    background: var(--white);
+}
+
+.education-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.education-header {
+    margin-bottom: var(--space-12);
+}
+
+.education-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.education-title-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--primary-teal);
+    border-radius: 2px;
+    margin-bottom: var(--space-4);
+}
+
+.education-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+.education-timeline {
+    position: relative;
+    padding-left: 60px;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gray-200);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--space-8);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: -36px;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--primary-dark);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    z-index: 1;
+}
+
+.timeline-item:not(.current) .timeline-icon {
+    background: var(--gray-200);
+    color: var(--text-secondary);
+}
+
+.timeline-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    display: flex;
+    gap: var(--space-6);
+    transition: all var(--transition-base);
+}
+
+.timeline-card:hover {
+    box-shadow: var(--shadow-card);
+}
+
+.timeline-card-header {
+    flex: 1;
+}
+
+.timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+}
+
+.current-badge {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: rgba(224, 123, 103, 0.15);
+    color: var(--secondary-coral);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+}
+
+.timeline-period {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.timeline-degree {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.timeline-field {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-teal);
+    margin-bottom: var(--space-3);
+}
+
+.timeline-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.timeline-institution {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.timeline-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.timeline-skill-tag {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--gray-100);
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-200);
+}
+
+.timeline-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+}
+
+.timeline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.timeline-link:hover {
+    color: var(--primary-teal);
+}
+
+.timeline-image {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+@media (max-width: 768px) {
+    .education-timeline {
+        padding-left: 40px;
+    }
+
+    .education-timeline::before {
+        left: 15px;
+    }
+
+    .timeline-icon {
+        left: -25px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .timeline-card {
+        flex-direction: column;
+    }
+
+    .timeline-image {
+        width: 100%;
+    }
+
+    .timeline-image img {
+        height: 180px;
+    }
+}

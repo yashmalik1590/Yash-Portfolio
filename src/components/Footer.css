@@ -1,0 +1,70 @@
+/* Footer Styles */
+.footer {
+    background: var(--white);
+    border-top: 1px solid var(--gray-100);
+    padding: var(--space-6) 0;
+}
+
+.footer-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.footer-copyright {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.footer-tagline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.heart-icon {
+    color: #ef4444;
+    font-size: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.footer-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    transition: all var(--transition-base);
+}
+
+.footer-links a:hover {
+    color: var(--primary-teal);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+}
