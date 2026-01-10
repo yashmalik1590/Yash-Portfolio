@@ -120,6 +120,10 @@
     z-index: -1;
 }
 
+.mobile-menu-header {
+    display: none;
+}
+
 /* Mobile Responsive */
 @media (max-width: 900px) {
     .navbar-toggle {
@@ -133,11 +137,41 @@
         width: 280px;
         height: 100vh;
         background: var(--white);
-        padding: var(--space-20) var(--space-6);
+        padding: var(--space-6);
         flex-direction: column;
         align-items: flex-start;
         transition: right var(--transition-slow);
         box-shadow: var(--shadow-xl);
+        z-index: 1001;
+        /* Ensure it stays on top */
+    }
+
+    .mobile-menu-header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: var(--space-4);
+        margin-bottom: var(--space-4);
+    }
+
+    .close-menu-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        border-radius: var(--radius-md);
+        background: var(--gray-100);
+        transition: all var(--transition-base);
+        border: none;
+        cursor: pointer;
+    }
+
+    .close-menu-btn:hover {
+        background: var(--gray-200);
+        color: var(--error);
     }
 
     .navbar-menu.active {
@@ -148,13 +182,25 @@
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        gap: var(--space-1);
+        gap: var(--space-2);
     }
 
     .navbar-link {
         width: 100%;
         padding: var(--space-3) var(--space-4);
-        font-size: 1rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        border-radius: var(--radius-lg);
+        transition: all var(--transition-base);
+    }
+
+    .navbar-link:active,
+    .navbar-link:hover,
+    .navbar-link.active {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        transform: translateX(4px);
+        padding-left: var(--space-6);
     }
 
     .mobile-menu-overlay {
@@ -166,9 +212,18 @@
     }
 
     .navbar-resume {
-        padding: var(--space-2);
+        padding: 0;
         width: 40px;
         height: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-resume svg {
+        font-size: 1.5rem;
+        display: block;
+        min-width: 24px;
+        min-height: 24px;
     }
 }
 

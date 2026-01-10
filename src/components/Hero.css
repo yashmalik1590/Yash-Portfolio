@@ -109,7 +109,8 @@
 /* Hero Image */
 .hero-image-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: var(--space-8);
 }
 
 .hero-image-wrapper {
@@ -294,6 +295,8 @@
 
     .hero-image-container {
         order: 1;
+        justify-content: center;
+        padding-right: 0;
     }
 
     .hero-cta {

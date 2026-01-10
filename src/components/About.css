@@ -192,10 +192,20 @@
 
     .about-actions {
         flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-4);
     }
 
     .about-resume {
         width: 100%;
+        justify-content: center;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .tech-tags {
         justify-content: center;
     }
 }
