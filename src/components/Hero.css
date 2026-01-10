@@ -8,7 +8,8 @@
 
 .hero-container {
     flex: 1;
-    max-width: var(--container-max);
+    max-width: 90vw;
+    /* Wider than other sections to reduce side space */
     margin: 0 auto;
     padding: var(--space-12) var(--container-padding);
     display: grid;
@@ -110,7 +111,6 @@
 .hero-image-container {
     display: flex;
     justify-content: flex-end;
-    padding-right: var(--space-8);
 }
 
 .hero-image-wrapper {
