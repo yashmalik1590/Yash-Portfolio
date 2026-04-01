@@ -1,22 +1,392 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sheelendra Singh - Full Stack Web Developer Portfolio. Building scalable web applications with MERN stack. B.Tech Computer Science student with a passion for clean UI/UX." />
-    <meta name="keywords" content="Sheelendra Singh, Full Stack Developer, MERN Stack, React, Node.js, Web Developer, Portfolio" />
-    <meta name="author" content="Sheelendra Singh" />
-    <meta property="og:title" content="Sheelendra Singh - Full Stack Web Developer" />
-    <meta property="og:description" content="Building scalable web applications with MERN stack." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sheelendra Singh - Full Stack Web Developer" />
-    <meta name="twitter:description" content="Building scalable web applications with MERN stack." />
-    <title>Sheelendra Singh | Full Stack Web Developer</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website showcasing projects, skills, and achievements.">
+    <title>Portfolio</title>
+    <!-- Tailwind CSS (Temporary - will optimize after Node.js setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#050505',
+                        surface: '#0a0a0a',
+                        primary: '#a855f7',
+                        secondary: '#8b5cf6',
+                        neon: '#c084fc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 dark:bg-background text-gray-800 dark:text-gray-200 font-sans antialiased overflow-x-hidden transition-colors duration-300 selection:bg-primary selection:text-white">
+
+    <!-- Noise & Grid Background -->
+    <div class="fixed inset-0 z-[0] pointer-events-none opacity-[0.03] dark:opacity-[0.05] bg-grid-pattern transition-opacity duration-300"></div>
+    <div class="fixed inset-0 z-[0] pointer-events-none opacity-[0.05] dark:opacity-[0.03] bg-noise transition-opacity duration-300"></div>
+    
+    <!-- Glowing Orbs Background -->
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden transition-opacity duration-500 opacity-30 dark:opacity-100">
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/10 rounded-full blur-[150px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+        <div class="container mx-auto px-6 py-5 md:pr-20 flex items-center justify-between relative">
+            <a class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white z-50" href="#home"><span id="brandName" class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-neon"></span></a>
+            
+            <div class="flex items-center gap-4 z-50">
+                <button id="menuBtn" class="md:hidden text-gray-900 dark:text-white p-2 mr-12 focus:outline-none" aria-label="Toggle menu">
+                    <div class="w-6 h-0.5 bg-current mb-1.5 transition-all" id="menuLine1"></div>
+                    <div class="w-6 h-0.5 bg-current mb-1.5 transition-all" id="menuLine2"></div>
+                    <div class="w-6 h-0.5 bg-current transition-all" id="menuLine3"></div>
+                </button>
+            </div>
+
+            <nav id="navMenu" class="fixed inset-0 bg-white/95 dark:bg-background/95 backdrop-blur-xl md:backdrop-blur-none flex-col md:flex-row items-center justify-center md:justify-end gap-8 transition-all duration-500 opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto md:static md:bg-transparent md:flex hidden-mobile flex z-40">
+                <ul class="flex flex-col md:flex-row items-center gap-8 text-lg md:text-sm font-medium tracking-wide">
+                    <li><a class="nav-link text-gray-600 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors" href="#home">Home</a></li>
+                    <li><a class="nav-link text-gray-600 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors" href="#about">About</a></li>
+                    <li><a class="nav-link text-gray-600 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors" href="#skills">Skills</a></li>
+                    <li><a class="nav-link text-gray-600 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors" href="#projects">Work</a></li>
+                    <li><a class="nav-link text-gray-600 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors" href="#certifications">Accolades</a></li>
+                    <li><a class="nav-link text-gray-600 dark:text-white/80 hover:text-primary dark:hover:text-white transition-colors" href="#contact">Contact</a></li>
+                </ul>
+                <a href="src/assets/cv.pdf" download="yash_CV.pdf" class="mt-8 md:mt-0 px-6 py-2.5 rounded-full border border-primary/50 text-primary dark:text-white hover:bg-primary hover:text-white dark:hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all glass-button text-sm font-medium">
+                    Resume
+                </a>
+            </nav>
+
+            <button id="themeToggle" class="absolute top-1/2 -translate-y-1/2 right-3 md:right-4 z-[60] p-2.5 rounded-full bg-white/75 dark:bg-white/10 backdrop-blur-md border border-gray-200 dark:border-white/10 text-gray-700 dark:text-yellow-400 hover:bg-white/95 dark:hover:bg-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-primary shadow-lg shadow-black/5 dark:shadow-black/20" aria-label="Toggle dark mode">
+                <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="relative z-10 page-shell">
+        <!-- HERO SECTION -->
+        <section id="home" class="min-h-screen flex items-center pt-24 pb-12 relative">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full">
+                <div class="gsap-hero order-2 md:order-1 flex flex-col items-start">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 dark:bg-primary/10 mb-8 backdrop-blur-sm">
+                        <span class="animate-pulse inline-block w-2 h-2 bg-primary dark:bg-neon rounded-full mr-3 shadow-[0_0_8px_#c084fc]"></span>
+                        <span class="text-xs font-mono text-primary dark:text-neon tracking-wider uppercase">Welcome to my portfolio</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-[1.05] tracking-tighter mb-6 relative">
+                        Hi, I am <br/>
+                        <span class="relative inline-block">
+                            <span class="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-primary via-neon to-secondary">Yash</span>
+                        </span>
+                    </h1>
+                    <p id="heroRole" class="text-xl lg:text-2xl font-light text-gray-600 dark:text-gray-300 mb-4 border-l-2 border-primary pl-4"></p>
+                    <p id="heroDesc" class="text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-lg mb-10 leading-relaxed font-light"></p>
+                    
+                    <div class="flex flex-wrap items-center gap-5 mt-4">
+                        <a href="#projects" class="group relative px-8 py-4 rounded-full bg-gray-900 dark:bg-white text-white dark:text-background font-bold text-sm tracking-wide overflow-hidden transition-transform hover:scale-105 active:scale-95">
+                            <span class="relative z-10 flex items-center gap-2">View Work <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary to-neon opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity"></div>
+                        </a>
+                        <a href="#contact" class="px-8 py-4 rounded-full border border-gray-300 dark:border-white/20 text-gray-800 dark:text-white font-medium text-sm tracking-wide hover:bg-gray-100 dark:hover:bg-white/5 transition-colors glass-button">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="gsap-hero order-1 md:order-2 relative perspective-1000 flex justify-center md:justify-end">
+                    <div class="w-[300px] h-[400px] lg:w-[400px] lg:h-[500px] glass-card p-2 rounded-[2.5rem] border border-gray-200 dark:border-white/10 transform-style-3d shadow-2xl shadow-primary/10 dark:shadow-primary/20 relative group profile-tilt bg-white/50 dark:bg-transparent">
+                        <div class="absolute -inset-0.5 bg-gradient-to-br from-primary via-transparent to-secondary opacity-20 dark:opacity-30 blur-xl rounded-[2.5rem] group-hover:opacity-50 dark:group-hover:opacity-70 transition duration-1000 -z-10"></div>
+                        <div class="relative bg-white dark:bg-surface rounded-[2.25rem] overflow-hidden border border-gray-100 dark:border-white/5 h-full w-full">
+                            <img src="src/assets/images/profilepic.png" alt="Profile" class="w-full h-[100%] object-cover object-top">
+                            <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8 bg-gradient-to-t from-white via-white/90 dark:from-background dark:via-background/90 to-transparent h-[45%] flex flex-col justify-end">
+                                <h2 id="profileName" class="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-1"></h2>
+                                <p id="profileTagline" class="text-primary dark:text-neon font-mono text-sm mb-4"></p>
+                                <div class="mt-auto">
+                                    <div class="inline-flex glass-panel p-2.5 px-4 rounded-xl border border-gray-200 dark:border-white/5 backdrop-blur-md bg-white/80 dark:bg-white/5 items-center gap-3">
+                                        <div class="text-lg font-bold text-gray-900 dark:text-white leading-none">B.Tech</div>
+                                        <div class="w-px h-4 bg-gray-300 dark:bg-white/20"></div>
+                                        <div class="text-[10px] text-gray-500 dark:text-gray-400 font-mono tracking-wider uppercase">Degree</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50 hidden md:flex">
+                <span class="text-xs font-mono tracking-widest uppercase text-gray-800 dark:text-white rotate-90 mb-6">Scroll</span>
+                <div class="w-[1px] h-12 bg-gradient-to-b from-gray-800 dark:from-white to-transparent"></div>
+            </div>
+            
+            <!-- Floating Socials -->
+            <div class="absolute right-6 bottom-0 top-0 flex flex-col justify-center items-center gap-6 z-20 hidden lg:flex">
+                <div class="w-[1px] h-24 bg-gradient-to-b from-transparent to-gray-400 dark:to-white/20 mb-4"></div>
+                <a id="githubLink" href="#" target="_blank" rel="noreferrer" class="text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-white hover:-translate-y-1 transition-all transform writing-vertical-rl rotate-180 text-sm tracking-widest font-mono">GITHUB</a>
+                <a id="linkedinLink" href="#" target="_blank" rel="noreferrer" class="text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-white hover:-translate-y-1 transition-all transform writing-vertical-rl rotate-180 text-sm tracking-widest font-mono">LINKEDIN</a>
+                <a id="emailLink" href="#" class="text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-white hover:-translate-y-1 transition-all transform writing-vertical-rl rotate-180 text-sm tracking-widest font-mono">EMAIL</a>
+                <div class="w-[1px] h-24 bg-gradient-to-t from-transparent to-gray-400 dark:to-white/20 mt-4"></div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-32 relative">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-7 gsap-fade-up">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="w-12 h-[1px] bg-primary"></span>
+                            <h2 class="text-sm font-mono text-primary tracking-widest uppercase">About Me</h2>
+                        </div>
+                        <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-[1.2]">Building the digital <br/><span class="text-gray-400 dark:text-gray-500">future today.</span></h3>
+                        <p id="aboutSubtitle" class="text-xl text-gray-600 dark:text-gray-300 font-light mb-8 border-l border-gray-300 dark:border-white/20 pl-6"></p>
+                        <div class="space-y-6 text-gray-500 dark:text-gray-400 leading-relaxed font-light text-lg">
+                            <p id="aboutText1"></p>
+                            <p id="aboutText2"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-5 gsap-fade-up">
+                        <div class="glass-card bg-white/50 dark:bg-transparent p-8 lg:p-10 rounded-[2rem] border border-gray-200 dark:border-white/5 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                </div>
+                                Core Tech Stack
+                            </h4>
+                            <div id="techStackRow" class="flex flex-wrap gap-3 relative z-10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="py-32 relative bg-gray-100/50 dark:bg-surface/30 border-y border-gray-200 dark:border-white/5">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20 gsap-fade-up">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="w-12 h-[1px] bg-primary"></span>
+                            <h2 class="text-sm font-mono text-primary tracking-widest uppercase">Expertise</h2>
+                        </div>
+                        <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">Technical Arsenal</h3>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="glass-card bg-white/50 dark:bg-transparent p-8 rounded-3xl border border-gray-200 dark:border-white/5 gsap-fade-up group hover:-translate-y-2 transition-transform duration-500 hover:border-primary/30 hover:shadow-[0_10px_40px_rgba(168,85,247,0.1)]">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-white/5 flex items-center justify-center mb-8 border border-gray-200 dark:border-white/10 group-hover:bg-primary/20 transition-colors text-primary">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-6 border-b border-gray-100 dark:border-white/10 pb-4">Languages & Frontend</h4>
+                        <div id="programmingSkills" class="space-y-3"></div>
+                    </div>
+                    
+                    <div class="glass-card bg-white/50 dark:bg-transparent p-8 rounded-3xl border border-gray-200 dark:border-white/5 gsap-fade-up group hover:-translate-y-2 transition-transform duration-500 hover:border-primary/30 hover:shadow-[0_10px_40px_rgba(168,85,247,0.1)]" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-white/5 flex items-center justify-center mb-8 border border-gray-200 dark:border-white/10 group-hover:bg-primary/20 transition-colors text-primary">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-6 border-b border-gray-100 dark:border-white/10 pb-4">Tools & Platforms</h4>
+                        <div id="toolSkills" class="space-y-3"></div>
+                    </div>
+                </div>
+                
+                <div class="glass-card bg-white/50 dark:bg-transparent p-8 pr-12 rounded-[2rem] border border-gray-200 dark:border-white/5 gsap-fade-up inline-flex flex-col md:flex-row items-start md:items-center gap-6">
+                    <h4 class="text-sm font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest whitespace-nowrap">Soft Skills:</h4>
+                    <div id="softSkills" class="flex flex-wrap gap-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="py-32 relative">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20 gsap-fade-up">
+                    <div class="max-w-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="w-12 h-[1px] bg-primary"></span>
+                            <h2 class="text-sm font-mono text-primary tracking-widest uppercase">Portfolio</h2>
+                        </div>
+                        <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">Selected Works</h3>
+                    </div>
+                    <div class="flex gap-2 mt-8 md:mt-0 flex-wrap pb-2" id="projectControls">
+                        <button class="filter-btn active px-6 py-2.5 rounded-full text-sm font-medium border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white bg-gray-200 dark:bg-white/5 transition-all focus:outline-none" data-filter="all">All</button>
+                        <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 hover:border-primary/50 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all focus:outline-none" data-filter="Web Development">Web</button>
+                        <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 hover:border-primary/50 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all focus:outline-none" data-filter="AI/ML">AI/ML</button>
+                    </div>
+                </div>
+                
+                <div id="projectsGrid" class="grid xl:grid-cols-2 gap-10"></div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications" class="py-32 relative bg-gray-100/50 dark:bg-surface/30 border-y border-gray-200 dark:border-white/5">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20 gsap-fade-up">
+                    <h2 class="text-sm font-mono text-primary mb-4 tracking-widest uppercase">Verified Knowledge</h2>
+                    <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Certificates & Training</h3>
+                    <p class="text-gray-500 dark:text-gray-400 font-light text-sm">Click a certificate to view details</p>
+                </div>
+                
+                <div id="certificationsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+
+        <!-- EDUCATION & ACHIEVEMENTS SECTION -->
+        <section id="education" class="py-32 relative">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="grid lg:grid-cols-12 gap-16">
+                    <!-- Timeline Left -->
+                    <div class="lg:col-span-7">
+                        <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-10 border-b border-gray-200 dark:border-white/10 pb-4 inline-flex items-center gap-3"><svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg> Education History</h4>
+                        <div id="educationTimeline" class="relative before:absolute before:inset-0 before:ml-5 md:before:mx-auto before:h-full before:w-[2px] before:bg-gradient-to-b before:from-transparent before:via-gray-300 dark:before:via-white/10 before:to-transparent"></div>
+                    </div>
+                    
+                    <!-- Achievements Right -->
+                    <div class="lg:col-span-5 space-y-12">
+                        <div class="gsap-fade-up">
+                            <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-6 pl-2 inline-flex items-center gap-3"><svg class="w-5 h-5 text-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> Key Achievements</h4>
+                            <div class="glass-card bg-white/50 dark:bg-transparent rounded-[2rem] border border-gray-200 dark:border-white/5 overflow-hidden p-2">
+                                <div id="achievementsList" class="divide-y divide-gray-100 dark:divide-white/5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-32 relative bg-gray-100/50 dark:bg-surface/30 border-t border-gray-200 dark:border-white/5">
+            <div class="container mx-auto px-6">
+                <div class="glass-card bg-white/30 dark:bg-transparent max-w-4xl mx-auto rounded-[3rem] border border-gray-200 dark:border-white/10 p-10 lg:p-20 relative overflow-hidden gsap-fade-up">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 dark:from-primary/10 via-transparent to-secondary/5 dark:to-secondary/10 -z-10"></div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
+                        <div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="w-12 h-[1px] bg-primary"></span>
+                                <h2 class="text-sm font-mono text-primary tracking-widest uppercase">Contact</h2>
+                            </div>
+                            <h3 class="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 leading-[1.1] tracking-tighter">Let's Build Something <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-neon">Epic.</span></h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-12 leading-relaxed font-light text-lg">I'm actively seeking new challenges and opportunities. Whether you have a project in mind or just want to connect, my inbox is open.</p>
+                            
+                            <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                                <div class="flex items-center gap-6 group">
+                                    <div class="w-14 h-14 rounded-2xl glass-panel bg-white/80 dark:bg-transparent border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">Email</p>
+                                        <a id="contactEmail" href="#" class="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-neon transition-colors"></a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-6 group">
+                                    <div class="w-14 h-14 rounded-2xl glass-panel bg-white/80 dark:bg-transparent border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">LinkedIn</p>
+                                        <a id="contactLinkedin" href="#" target="_blank" rel="noreferrer" class="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-neon transition-colors">Connect on LinkedIn</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-6 group">
+                                    <div class="w-14 h-14 rounded-2xl glass-panel bg-white/80 dark:bg-transparent border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">GitHub</p>
+                                        <a id="contactGithub" href="#" target="_blank" rel="noreferrer" class="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-neon transition-colors">Follow on GitHub</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-6 group">
+                                    <div class="w-14 h-14 rounded-2xl glass-panel bg-white/80 dark:bg-transparent border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mb-1">Headquarters</p>
+                                        <span id="contactLocation" class="text-lg font-medium text-gray-900 dark:text-white"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel bg-white/80 dark:bg-white/5 p-8 lg:p-10 rounded-[2rem] border border-gray-200 dark:border-white/5">
+                            <form id="contactForm" class="space-y-5" novalidate>
+                                <div>
+                                    <label class="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-2">Name</label>
+                                    <input type="text" name="name" required class="w-full bg-white dark:bg-background/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-background transition-all shadow-sm dark:shadow-none">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-2">Email</label>
+                                    <input type="email" name="email" required class="w-full bg-white dark:bg-background/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-background transition-all shadow-sm dark:shadow-none">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-2">Subject</label>
+                                    <select name="subject" required class="w-full bg-white dark:bg-background/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-background transition-all appearance-none cursor-pointer shadow-sm dark:shadow-none">
+                                        <option value="" disabled selected>Select a topic</option>
+                                        <option value="Internship">Internship Opportunity</option>
+                                        <option value="Project">Project Collaboration</option>
+                                        <option value="Freelance">Freelance Work</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-2">Message</label>
+                                    <textarea name="message" rows="4" required class="w-full bg-white dark:bg-background/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-background transition-all resize-none shadow-sm dark:shadow-none"></textarea>
+                                </div>
+                                <div class="pt-2">
+                                    <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-background font-bold tracking-wide hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:-translate-y-1 transition-all group overflow-hidden relative">
+                                        <span class="relative z-10 flex items-center justify-center gap-2">Message <svg class="w-4 h-4 transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg></span>
+                                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-neon opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    </button>
+                                </div>
+                                <p id="formStatus" class="text-sm mt-2 opacity-0 transition-opacity"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-gray-200 dark:border-white/5 mt-10 relative z-10 bg-slate-50 dark:bg-background transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <a class="text-xl font-black tracking-tighter text-gray-900 dark:text-white" href="#home"><span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-neon">Yash</span></a>
+                <p class="text-sm text-gray-500 font-light">© <span id="year"></span> <span id="footerName"></span>. Built with passion.</p>
+                <div class="flex gap-6 text-xs font-mono text-gray-500 uppercase tracking-widest">
+                    <span>Tailwind</span>
+                    <span>GSAP</span>
+                    <span>Lenis</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
 </html>
