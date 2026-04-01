@@ -37,7 +37,10 @@ const portfolioData = {
             title: "•	Power Usage Outage Prediction Using AI | Python, Streamlit, Gemini API                 ",
             category: "Web Development",
             stack: ["Java", "Jakarta EE", "JSP", "MySQL", "Tailwind CSS"],
-            description: "Built a data-driven forecasting model leveraging historical power usage and meteorological datasets to predict urban power outages Implemented machine learning evaluation pipelines using Pandas and NumPy to analyse patterns, significantly improving outage forecasting accuracy.Visualized data trends and prediction reliability using Matplotlib and Seaborn for stakeholder reporting."
+            description: "Built a data-driven forecasting model leveraging historical power usage and meteorological datasets to predict urban power outages Implemented machine learning evaluation pipelines using Pandas and NumPy to analyse patterns, significantly improving outage forecasting accuracy.Visualized data trends and prediction reliability using Matplotlib and Seaborn for stakeholder reporting.",
+            image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23a855f7;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23grad1)'/%3E%3Ccircle cx='200' cy='150' r='80' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='600' cy='450' r='120' fill='rgba(255,255,255,0.1)'/%3E%3Ctext x='400' y='300' font-size='48' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPower Prediction%3C/text%3E%3Ctext x='400' y='360' font-size='24' fill='rgba(255,255,255,0.8)' text-anchor='middle' dominant-baseline='middle'%3EAI-Powered Forecasting%3C/text%3E%3C/svg%3E",
+            source: "https://github.com/yashmalik1590",
+            live: "#"
         
         },
         {
@@ -45,13 +48,18 @@ const portfolioData = {
             category: "AI/ML",
             stack: ["Python", "NLP", "Logistic Regression", "Streamlit"],
             description: "Constructed an interactive web-based chatbot that provides real-time space insights and astronomy data through NASA and Open Notify APIs.Integrated Google's Gemini API, processing 750+ API calls to generate intelligent natural-language responses from NASA and Open Notify APIs, enhancing the Space Exploration Bot's ability to deliver real-time space insights",
+            image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231e3a8a;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%237c3aed;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23grad2)'/%3E%3Ccircle cx='400' cy='300' r='50' fill='%23fbbf24' opacity='0.8'/%3E%3Ccircle cx='300' cy='200' r='15' fill='white' opacity='0.6'/%3E%3Ccircle cx='550' cy='350' r='20' fill='white' opacity='0.5'/%3E%3Ctext x='400' y='300' font-size='48' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESpace Bot%3C/text%3E%3Ctext x='400' y='370' font-size='24' fill='rgba(255,255,255,0.8)' text-anchor='middle' dominant-baseline='middle'%3EGemini AI Explorer%3C/text%3E%3C/svg%3E",
+            source: "https://github.com/yashmalik1590",
+            live: "#"
         },
         {
             title: "•	University Cricket Event Manager.",
             category: "Full Stack",
             stack: ["Python", "NLP", "Sentence Transformers", "Scikit-learn", "Streamlit"],
             description: "Built a responsive web application to manage university-level cricket events, allowing users to view schedules and match details seamlessly.",
-           
+            image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23065f46;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2310b981;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23grad3)'/%3E%3Crect x='250' y='180' width='300' height='240' fill='rgba(255,255,255,0.1)' rx='20'/%3E%3Ccircle cx='400' cy='280' r='60' fill='rgba(255,255,255,0.2)'/%3E%3Ctext x='400' y='300' font-size='48' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECricket Manager%3C/text%3E%3Ctext x='400' y='360' font-size='24' fill='rgba(255,255,255,0.8)' text-anchor='middle' dominant-baseline='middle'%3EEvent Management System%3C/text%3E%3C/svg%3E",
+            source: "https://github.com/yashmalik1590",
+            live: "#"
         },
     ],
     certifications: [
